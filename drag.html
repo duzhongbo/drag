@@ -15,27 +15,37 @@
 
 
 <script type="text/javascript">
-var box = document.querySelector('.box'),disX,disY;
-var bDrag = false;
 
-box.onmousedown=function(e){
-	bDrag = true;
-	disX = e.clientX - box.offsetLeft;
-	disY = e.clientY - box.offsetTop;
-}
-box.onmousemove=function(e){
-	if(!bDrag){
-		return;
+/*
+ * 功能：拖拽dom
+ * 参数：被拖拽dom对象
+ * 返回值：无
+*/
+function drag(box){
+	var disX,disY;
+	var bDrag = false;
+
+	box.onmousedown=function(e){
+		bDrag = true;
+		disX = e.clientX - box.offsetLeft;
+		disY = e.clientY - box.offsetTop;
 	}
-	var x = e.clientX - disX;
-	var y = e.clientY - disY;
-	box.style.left=x+'px';
-	box.style.top=y+'px';
-}
-box.onmouseup=function(){
-	bDrag = false;
+	box.onmousemove=function(e){
+		if(!bDrag){
+			return;
+		}
+		var x = e.clientX - disX;
+		var y = e.clientY - disY;
+		box.style.left=x+'px';
+		box.style.top=y+'px';
+	}
+	box.onmouseup=function(){
+		bDrag = false;
+	}
 }
 
+var box = document.querySelector('.box');
+drag(box);
 </script>
 
 
