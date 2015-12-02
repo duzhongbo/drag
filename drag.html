@@ -8,10 +8,11 @@
 	
 <style type="text/css">
 .box{width:200px;height:100px;background-color:#ccc;position:absolute;}
-
+.box2{left:300px;background-color:#999;}
 </style>
 
-<div class="box"></div>
+<div class="box" id="box1"></div>
+<div class="box box2" id="box2"></div>
 
 
 <script type="text/javascript">
@@ -44,8 +45,8 @@ function drag(box){
 	}
 }
 
-var box = document.querySelector('.box');
-drag(box);
+drag(box1);
+drag(box2);
 </script>
 
 
